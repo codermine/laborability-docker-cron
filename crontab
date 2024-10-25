@@ -1,3 +1,4 @@
-* * * * * ENDPOINT="${LABORABILITY_BE_BASE_URL}"; CLEAN_ENDPOINT=$(echo $ENDPOINT | sed 's/[^a-zA-Z0-9]/_/g'); NOW=$(date +"%Y-%m-%d_%H-%M-%S"); LOGFILE="/path/to/log/${CLEAN_ENDPOINT}_${NOW}.log"; curl -u "${USERNAME}:${PASSWORD}" -X POST $ENDPOINT -H "Content-Type: application/json" -o $LOGFILE
+0 0,12 * * * curl -u "${BASIC_AUTH_USER}:${BASIC_AUTH_PASSWORD}" -X POST "${LABORABILITY_BE_BASE_URL}/api/v1/users/sync_all_users" -H "Content-Type: application/json" >/proc/1/fd/1 2>/proc/1/fd/2
+0 12 * * * curl -u "${BASIC_AUTH_USER}:${BASIC_AUTH_PASSWORD}" -X POST "${LABORABILITY_BE_BASE_URL}/api/v1/measures/status_measure" -H "Content-Type: application/json" >/proc/1/fd/1 2>/proc/1/fd/2
 
 # An empty line is required at the end of this file for a valid cron file.
