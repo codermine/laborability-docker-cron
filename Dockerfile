@@ -10,8 +10,8 @@ RUN apt-get update \
 
 COPY crontab /hello-cron
 COPY entrypoint.sh /entrypoint.sh
-COPY update_measure.sh /update_measure.sh
-RUN chmod +x /update_measure.sh
+COPY update_measure.sh /home/update_measure.sh
+RUN chmod +x /home/update_measure.sh
 
 RUN crontab hello-cron
 RUN chmod +x entrypoint.sh
