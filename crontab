@@ -1,3 +1,4 @@
-*/5 * * * * ENDPOINT="${LABORABILITY_BE_BASE_URL}/api/v1/measures/status_measure"; CLEAN_ENDPOINT=$(echo $ENDPOINT | sed 's/[^a-zA-Z0-9]/_/g'); NOW=$(date +"%Y-%m-%d_%H-%M-%S"); LOGFILE="/var/log/${CLEAN_ENDPOINT}_${NOW}.log"; curl -u "${BASIC_AUTH_USER}:${BASIC_AUTH_PASSWORD}" -X PUT $ENDPOINT -H "Content-Type: application/json" -o $LOGFILE
+*/5 * * * * ENDPOINT="${LABORABILITY_BE_BASE_URL}/api/v1/measures/status_measure"; CLEAN_ENDPOINT=$(echo $ENDPOINT | sed 's/[^a-zA-Z0-9]/_/g'); NOW=$(date +"%Y-%m-%d_%H-%M-%S"); LOGFILE="/var/log/${CLEAN_ENDPOINT}_${NOW}.log"; curl -u "${BASIC_AUTH_USER}:${BASIC_AUTH_PASSWORD}" -X PUT $ENDPOINT -H "Content-Type: application/json" -o $LOGFILE * * * * * /path/to/script.sh >> /var/log/crontab.log 2>&1
+
 
 # An empty line is required at the end of this file for a valid cron file.
